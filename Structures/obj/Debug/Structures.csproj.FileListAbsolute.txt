@@ -1,0 +1,6 @@
+c:\users\vova\documents\visual studio 2015\Projects\Structures\Structures\bin\Debug\Structures.exe.config
+c:\users\vova\documents\visual studio 2015\Projects\Structures\Structures\bin\Debug\Structures.exe
+c:\users\vova\documents\visual studio 2015\Projects\Structures\Structures\bin\Debug\Structures.pdb
+c:\users\vova\documents\visual studio 2015\Projects\Structures\Structures\obj\Debug\Structures.csprojResolveAssemblyReference.cache
+c:\users\vova\documents\visual studio 2015\Projects\Structures\Structures\obj\Debug\Structures.exe
+c:\users\vova\documents\visual studio 2015\Projects\Structures\Structures\obj\Debug\Structures.pdb
