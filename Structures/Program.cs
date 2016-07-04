@@ -78,5 +78,82 @@ namespace Structures
 
             Length++;
         }
+
+        public void Remove(T value)
+        {
+            TreeNode<T> parent;
+            TreeNode<T> current = FindWithParent(value, out parent);
+
+            if (current == null)
+                return;
+
+            Length--;
+
+            if (current.Right == null) {
+                int result = current.CompareTo (parent);
+
+                if (result < 0) {
+                    parent.Left = current.Left;
+                } else {
+                    parent.Right = current.Left;
+                }
+            } else if (current.Right.Left == null) {
+                current.Right.Left = current.Left;
+
+                int result = current.CompareTo (parent);
+
+                if (result < 0) {
+                    parent.Left = current.Right;
+                } else {
+                    parent.Right = current.Right;
+                }
+            } else {
+                TreeNode<T> minNode = current.Right.Left;
+                TreeNode<T> minNodeParent = current.Right;
+
+                while (minNode != null) {
+                    minNodeParent = minNode;
+                    minNode = minNode.Left;
+                }
+
+                minNodeParent.Left = minNode.Right;
+
+                minNode.Left = current.Left;
+                minNode.Right = current.Right;
+
+                int result = current.CompareTo (parent);
+
+                if (result < 0) {
+                    parent.Left = minNode;
+                } else {
+                    parent.Right = minNode;
+                }
+
+
+            }
+        }
+
+        private TreeNode<T> FindWithParent(T value, out TreeNode<T> parent)
+        {
+            TreeNode<T> current = root;
+            parent = null;
+
+            while(current != null)
+            {
+                int result = current.Value.CompareTo(value);
+
+                if (result > 0) {
+                    parent = current;
+                    current = current.Right;
+                } else if (result < 0) {
+                    parent = current;
+                    current = current.Left;
+                } else {
+                    break;
+                }
+            }
+
+            return current;
+        }
     }
 }
